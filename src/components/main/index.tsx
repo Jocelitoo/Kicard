@@ -4,6 +4,7 @@ import { Advantages } from '../sections/advantages';
 import { FAQ } from '../sections/faq';
 import { Hero } from '../sections/hero';
 import { Logos } from '../sections/logos';
+import { Map } from '../sections/map';
 import { Products } from '../sections/products';
 
 export const Main = () => {
@@ -14,8 +15,9 @@ export const Main = () => {
       <Achievements />
       <Products />
       <Advantages />
+      <Map/>
       <FAQ />
-      <Banner />
+      
 
       <p className="h-[200px]">Olá</p>
       <p className="h-[200px]">Olá</p>

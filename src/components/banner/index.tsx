@@ -3,7 +3,7 @@ import { Button } from '../ui/button';
 
 export const Banner = () => {
   return (
-    <div id="hero" className="">
+    <div id="hero" className="px-4 sm:px-8 lg:px-10">
       <img
         src={banner}
         alt="Promo"
