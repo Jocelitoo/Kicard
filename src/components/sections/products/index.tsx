@@ -43,7 +43,7 @@ export const Products = () => {
   return (
     <section className="bg-cardBlue p-4">
       <div className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto flex flex-col items-center gap-4 ">
-        <p className="bg-white px-4 py-2 rounded-lg">Produtos</p>
+        <h2 className="bg-white px-4 py-2 rounded-lg">Produtos</h2>
 
         <div className="grid gap-4 lg:grid-cols-3">
           {products.map((product, index) => {

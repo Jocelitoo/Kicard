@@ -15,16 +15,8 @@ export const Main = () => {
       <Achievements />
       <Products />
       <Advantages />
-      <Map/>
+      <Map />
       <FAQ />
-      
-
-      <p className="h-[200px]">Olá</p>
-      <p className="h-[200px]">Olá</p>
-      <p className="h-[200px]">Olá</p>
-      <p className="h-[200px]">Olá</p>
-      <p className="h-[200px]">Olá</p>
-      <p className="h-[200px]">Olá</p>
     </main>
   );
 };

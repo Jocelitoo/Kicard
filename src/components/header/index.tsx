@@ -1,9 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
 import logo from '../../assets/images/logo.png';
+import logo2 from '@/assets/images/logo2White.png';
 import { Button } from '../ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '../ui/sheet';
 
-const links = [
+export const links = [
   { text: 'Home', url: '#' },
   { text: 'Sobre nós', url: '#sobre' },
   { text: 'Produtos', url: '#produtos' },
@@ -12,61 +21,22 @@ const links = [
 ];
 
 export const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-  const menuRef = useRef<HTMLElement>(null);
-
-  // Detectar cliques fora do menu para fecha-lo
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(target) &&
-        !(target instanceof Element && target.closest('#menu-toggle-button'))
-      ) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    if (mobileMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [mobileMenuOpen]);
-
-  useEffect(() => {
-    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <header className="sticky left-0 top-0 right-0 z-50 bg-projectGrey ">
       <div className="flex items-center justify-between max-w-7xl py-4 px-4 sm:px-8 lg:px-10 mx-auto">
         <a href="#">
-          <img src={logo} width={150} height={100} />
+          <img src={logo} alt="logo da empresa" width={150} height={100} />
         </a>
 
-        <nav
-          ref={menuRef}
-          className={`absolute left-0 top-full w-full origin-top ${!isDesktop ? 'transition-all duration-300 ease-in-out' : 'transition-none'}
-          ${mobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'} bg-projectGrey text-white lg:relative lg:scale-y-100 lg:opacity-100 lg:w-fit `}
-        >
-          <ul className="gap-4 items-center lg:flex lg:gap-4">
+        {/* Nav desktop */}
+        <nav className="text-white hidden lg:block">
+          <ul className="flex gap-4">
             {links.map((link, index) => {
               return (
-                <li key={index} className="border-b border-black lg:border-0">
+                <li key={index}>
                   <a
                     href={link.url}
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    className="block text-center py-2 hover:bg-projectBlue hover:text-black duration-300 lg:px-4 lg:py-2 lg:rounded-lg"
+                    className=" hover:bg-projectBlue hover:text-black duration-300 px-4 py-2 rounded-lg"
                   >
                     {link.text}
                   </a>
@@ -76,54 +46,52 @@ export const Header = () => {
           </ul>
         </nav>
 
-        <Button
-          id="menu-toggle-button"
-          size={'lg'}
-          variant={'outline'}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="cursor-pointer lg:hidden"
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </Button>
+        {/* Nav mobile */}
+        <Sheet>
+          <SheetTrigger className="bg-projectGreen p-1 rounded-md  lg:hidden">
+            <Menu />
+          </SheetTrigger>
+
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>
+                <img src={logo2} alt="Logo da empresa" className="size-8" />
+              </SheetTitle>
+            </SheetHeader>
+
+            <nav>
+              <ul className="space-y-4 px-2">
+                {links.map((link, index) => {
+                  return (
+                    <li key={index}>
+                      <SheetClose asChild>
+                        <a
+                          href={link.url}
+                          className="block p-2 rounded-lg bg-cardBlue duration-300 hover:bg-projectBlue"
+                        >
+                          {link.text}
+                        </a>
+                      </SheetClose>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            <SheetFooter>
+              <SheetClose>
+                <Button
+                  size={'lg'}
+                  asChild
+                  className="bg-projectBlue text-black w-full duration-300 hover:bg-projectBlueHover"
+                >
+                  <a href="#">Fale conosco</a>
+                </Button>
+              </SheetClose>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
-
-    // <header className="sticky left-0 top-0 right-0 flex items-center justify-between px-4 py-4 z-50 shadow-md backdrop-blur-3xl">
-    //   <a href="#">
-    //     <img src={logo} width={150} height={100} />
-    //   </a>
-
-    //   <nav
-    //     ref={menuRef}
-    //     className={`absolute left-0 top-full w-full origin-top ${!isDesktop ? 'transition-all duration-300 ease-in-out' : 'transition-none'}
-    //     ${mobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'} lg:relative lg:scale-y-100 lg:opacity-100 lg:w-fit `}
-    //   >
-    //     <ul className="gap-4 items-center lg:flex lg:gap-4">
-    //       {links.map((link, index) => {
-    //         return (
-    //           <li key={index} className="border-b border-black lg:border-0">
-    //             <a
-    //               href={link.url}
-    //               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-    //               className="block text-center py-2 hover:bg-yellow-300 duration-300 lg:px-4 lg:py-2 lg:rounded-lg"
-    //             >
-    //               {link.text}
-    //             </a>
-    //           </li>
-    //         );
-    //       })}
-    //     </ul>
-    //   </nav>
-
-    //   <Button
-    //     id="menu-toggle-button"
-    //     size={'lg'}
-    //     variant={'outline'}
-    //     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-    //     className="cursor-pointer lg:hidden"
-    //   >
-    //     {mobileMenuOpen ? <X /> : <Menu />}
-    //   </Button>
-    // </header>
   );
 };

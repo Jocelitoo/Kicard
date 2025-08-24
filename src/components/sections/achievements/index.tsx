@@ -42,9 +42,9 @@ export const Achievements = () => {
 
     <section className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8">
       <div className="flex flex-col gap-4 items-center text-center lg:items-start lg:text-start ">
-        <p className="bg-cardBlue py-2 px-4 rounded-lg w-fit ">
+        <h2 className="bg-cardBlue py-2 px-4 rounded-lg w-fit ">
           Sobre a Kicard
-        </p>
+        </h2>
 
         <h2 className="font-semibold text-3xl text-gray-900">
           Confiança e inovação para o seu futuro
