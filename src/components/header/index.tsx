@@ -11,16 +11,31 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
+import { motion } from "motion/react";
+
 
 export const links = [
-  { text: 'Home', url: '#' },
+  { text: 'Home', url: '#hero' },
   { text: 'Sobre nós', url: '#sobre' },
   { text: 'Produtos', url: '#produtos' },
   { text: 'Vantagens', url: '#vantagens' },
+  { text: 'Educacional', url: '#educacional' },
   { text: 'FAQ', url: '#faq' },
 ];
 
 export const Header = () => {
+  // Animação de scroll
+  const handleScroll = (id: string) => {
+    const element = document.querySelector(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth", // suaviza o scroll
+        block: "start",
+      });
+    }
+  };
+
   return (
     <header className="sticky left-0 top-0 right-0 z-50 bg-projectGrey ">
       <div className="flex items-center justify-between max-w-7xl py-4 px-4 sm:px-8 lg:px-10 mx-auto">
@@ -34,17 +49,25 @@ export const Header = () => {
             {links.map((link, index) => {
               return (
                 <li key={index}>
-                  <a
+                  {/* <a
                     href={link.url}
                     className=" hover:bg-projectBlue hover:text-black duration-300 px-4 py-2 rounded-lg"
                   >
                     {link.text}
-                  </a>
+                  </a> */}
+
+                  <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
+                    {link.text}
+                  </motion.button>
                 </li>
               );
             })}
           </ul>
         </nav>
+
+        <Button size={'lg'} asChild className='hidden lg:flex bg-projectBlue text-black duration-300  hover:bg-projectBlueHover'>
+          <a href="#">Fale conosco</a>
+        </Button>
 
         {/* Nav mobile */}
         <Sheet>

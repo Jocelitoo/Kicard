@@ -22,7 +22,7 @@ const products = [
       'Benefícios Adicionais',
       'Menor Risco de Inadimplência',
       'Uso Versátil',
-      'Limite de Crédito Personalizad',
+      'Limite de Crédito Personalizado',
     ],
   },
   {
@@ -41,7 +41,7 @@ const products = [
 
 export const Products = () => {
   return (
-    <section className="bg-cardBlue p-4">
+    <section id='produtos' className="bg-cardBlue p-4 scroll-mt-24">
       <div className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto flex flex-col items-center gap-4 ">
         <h2 className="bg-white px-4 py-2 rounded-lg">Produtos</h2>
 

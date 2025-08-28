@@ -2,14 +2,28 @@ import logo from '../../assets/images/logo.png';
 import wpp from '@/assets/svgs/wppWhite.svg';
 import { Instagram, Mail } from 'lucide-react';
 import { links } from '../header';
+import { motion } from "motion/react";
+
 
 export const Footer = () => {
+  // Animação de scroll
+   const handleScroll = (id: string) => {
+    const element = document.querySelector(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth", // suaviza o scroll
+        block: "start",
+      });
+    }
+  };
+
   return (
     <footer className="bg-projectGrey text-white mt-8 lg:mt-16">
       <div className="max-w-7xl py-8 lg:py-8 px-4 sm:px-8 lg:px-10 mx-auto flex flex-col items-center gap-8 ">
         <div className="w-full flex flex-col gap-8 lg:flex-row lg:justify-between ">
           <div>
-            <img src={logo} alt="Logo da empresa" className="w-40 " />
+            <img src={logo} alt="Logo da empresa" className="w-40" />
           </div>
 
           <div>
@@ -53,16 +67,19 @@ export const Footer = () => {
         </div>
 
         <nav className="text-white">
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
             {links.map((link, index) => {
               return (
                 <li key={index}>
-                  <a
+                  {/* <a
                     href={link.url}
                     className=" hover:bg-projectBlue hover:text-black duration-300 px-4 py-2 rounded-lg text-gray-200"
                   >
                     {link.text}
-                  </a>
+                  </a> */}
+                   <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
+                    {link.text}
+                  </motion.button>
                 </li>
               );
             })}

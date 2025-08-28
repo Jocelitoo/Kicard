@@ -6,19 +6,19 @@ const iconCss = 'rounded-full p-2 bg-projectGreen';
 const elements = [
   {
     icon: <Map size={60} className={iconCss} />,
-    text: '+ 20 Convênios no Brasil',
+    text: '+ x Convênios no Brasil',
   },
   {
     icon: <Banknote size={60} className={iconCss} />,
-    text: '+ 20 Milhões de crédito',
+    text: '+ x Milhões de crédito',
   },
   {
     icon: <Users2 size={60} className={iconCss} />,
-    text: '+ 5 Mil clientes',
+    text: '+ x Mil clientes',
   },
   {
     icon: <Clock size={60} className={iconCss} />,
-    text: '+ 2 Anos no mercado',
+    text: '+ x Anos no mercado',
   },
 ];
 
@@ -40,7 +40,7 @@ export const Achievements = () => {
     //   })}
     // </section>
 
-    <section className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8">
+    <section id='sobre' className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8 scroll-mt-30">
       <div className="flex flex-col gap-4 items-center text-center lg:items-start lg:text-start ">
         <h2 className="bg-cardBlue py-2 px-4 rounded-lg w-fit ">
           Sobre a Kicard

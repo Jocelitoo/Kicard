@@ -55,10 +55,10 @@ export const Hero = () => {
     //   </div>
     // </section>
 
-    <div id="hero" className="px-4 sm:px-8 lg:px-10">
+    <section id="hero" className="px-4 sm:px-8 lg:px-10">
       <img
         src={banner}
-        alt="Promo"
+        alt="Casal abraçado"
         className="absolute right-0 top-0 h-full w-3/5 object-cover object-right hidden lg:block"
       />
 
@@ -73,15 +73,15 @@ export const Hero = () => {
           Simples, seguro e desconto direto na folha.
         </p>
 
-          <Button size={'lg'} asChild>
+          <Button size={'lg'} asChild className='bg-projectBlue text-black duration-300 hover:bg-projectBlueHover'>
             <a href="/contato">Fale com um consultor</a>
           </Button>
         
 
         <p className="text-sm text-gray-700">
-          Simule em 2 minutos • Sem burocracia
+          Simule em poucos minutos • Sem burocracia
         </p>
       </div>
-    </div>
+    </section>
   );
 };

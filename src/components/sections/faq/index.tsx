@@ -81,7 +81,7 @@ export const FAQ = () => {
   const items = currentCategory?.faqs ?? [];
 
   return (
-    <section className=" bg-cardBlue p-4">
+    <section id='faq' className="bg-cardBlue p-4 scroll-mt-24">
       <div className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto flex flex-col items-center gap-4">
         <h2 className="bg-white py-2 px-4 rounded-lg w-fit uppercase ">Faq</h2>
 
