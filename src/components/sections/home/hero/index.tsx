@@ -1,5 +1,5 @@
 import heroImage from '@/assets/images/freepik2.png';
-import banner from '@/assets/images/banner2.png';
+import banner from '@/assets/images/banner3.png';
 import { Button } from '@/components/ui/button';
 
 export const Hero = () => {
