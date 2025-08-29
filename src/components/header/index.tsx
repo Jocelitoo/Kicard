@@ -39,7 +39,7 @@ export const Header = () => {
   return (
     <header className="sticky left-0 top-0 right-0 z-50 bg-projectGrey ">
       <div className="flex items-center justify-between max-w-7xl py-4 px-4 sm:px-8 lg:px-10 mx-auto">
-        <a href="#">
+        <a href="/">
           <img src={logo} alt="logo da empresa" width={150} height={100} />
         </a>
 

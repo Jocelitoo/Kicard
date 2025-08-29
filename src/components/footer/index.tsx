@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export const Footer = () => {
   // Animação de scroll
-   const handleScroll = (id: string) => {
+  const handleScroll = (id: string) => {
     const element = document.querySelector(id);
 
     if (element) {
@@ -37,9 +37,7 @@ export const Footer = () => {
             <h3 className="text-2xl mb-2 font-bold">Termos</h3>
 
             <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/politica-de-privacidade"
               className="text-gray-200 underline"
             >
               Política de privacidade
@@ -77,7 +75,7 @@ export const Footer = () => {
                   >
                     {link.text}
                   </a> */}
-                   <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
+                  <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
                     {link.text}
                   </motion.button>
                 </li>

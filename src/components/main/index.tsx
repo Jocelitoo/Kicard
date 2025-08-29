@@ -1,11 +1,11 @@
-import { Achievements } from '../sections/achievements';
-import { Advantages } from '../sections/advantages';
-import { FAQ } from '../sections/faq';
-import { Hero } from '../sections/hero';
-import { Educational } from '../sections/educational';
-import { Logos } from '../sections/logos';
-import { Map } from '../sections/map';
-import { Products } from '../sections/products';
+import { Achievements } from '../sections/home/achievements';
+import { Advantages } from '../sections/home/advantages';
+import { FAQ } from '../sections/home/faq';
+import { Hero } from '../sections/home/hero';
+import { Educational } from '../sections/home/educational';
+import { Logos } from '../sections/home/logos';
+import { Map } from '../sections/home/map';
+import { Products } from '../sections/home/products';
 import wpp from '@/assets/svgs/wpp.svg'
 
 export const Main = () => {
