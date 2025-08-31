@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button';
+import { phone } from '@/utils/phone';
 import { Banknote, Clock, Map, Users2 } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const iconCss = 'rounded-full p-2 bg-projectGreen';
 
@@ -23,6 +25,16 @@ const elements = [
 ];
 
 export const Achievements = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verificar se o usuário está acessando no desktop ou celular
+  useEffect(() => {
+    const userAgent =
+      typeof navigator === 'undefined' ? '' : navigator.userAgent;
+    const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    setIsMobile(isMobileDevice);
+  }, []);
+
   return (
     // <section className="flex justify-between max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto">
     //   {elements.map((element, index) => {
@@ -40,7 +52,10 @@ export const Achievements = () => {
     //   })}
     // </section>
 
-    <section id='sobre' className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8 scroll-mt-30">
+    <section
+      id="sobre"
+      className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8 scroll-mt-30"
+    >
       <div className="flex flex-col gap-4 items-center text-center lg:items-start lg:text-start ">
         <h2 className="bg-cardBlue py-2 px-4 rounded-lg w-fit ">
           Sobre a Kicard
@@ -75,7 +90,15 @@ export const Achievements = () => {
           asChild
           className="w-fit bg-projectBlue duration-300 hover:bg-projectBlueHover text-black"
         >
-          <a href="#">Simule seu crédito</a>
+          <a
+            href={`https://${
+              isMobile ? 'api' : 'web'
+            }.whatsapp.com/send?phone=${phone}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Simule seu crédito
+          </a>
         </Button>
       </div>
 

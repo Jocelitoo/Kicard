@@ -1,8 +1,19 @@
-import heroImage from '@/assets/images/freepik2.png';
 import banner from '@/assets/images/banner3.png';
 import { Button } from '@/components/ui/button';
+import { phone } from '@/utils/phone';
+import { useEffect, useState } from 'react';
 
 export const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verificar se o usuário está acessando no desktop ou celular
+  useEffect(() => {
+    const userAgent =
+      typeof navigator === 'undefined' ? '' : navigator.userAgent;
+    const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    setIsMobile(isMobileDevice);
+  }, []);
+
   return (
     // <section className="bg-[#00D9D2]">
     //   <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-16 sm:py-24 flex items-center gap-8">
@@ -73,10 +84,21 @@ export const Hero = () => {
           Simples, seguro e desconto direto na folha.
         </p>
 
-          <Button size={'lg'} asChild className='bg-projectBlue text-black duration-300 hover:bg-projectBlueHover'>
-            <a href="/contato">Fale com um consultor</a>
-          </Button>
-        
+        <Button
+          size={'lg'}
+          asChild
+          className="bg-projectBlue text-black duration-300 hover:bg-projectBlueHover"
+        >
+          <a
+            href={`https://${
+              isMobile ? 'api' : 'web'
+            }.whatsapp.com/send?phone=${phone}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Fale com um consultor
+          </a>
+        </Button>
 
         <p className="text-sm text-gray-700">
           Simule em poucos minutos • Sem burocracia

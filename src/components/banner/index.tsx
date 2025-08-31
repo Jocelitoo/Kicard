@@ -1,7 +1,19 @@
 import banner from '@/assets/images/banner2.png';
 import { Button } from '../ui/button';
+import { useEffect, useState } from 'react';
+import { phone } from '@/utils/phone';
 
 export const Banner = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verificar se o usuário está acessando no desktop ou celular
+  useEffect(() => {
+    const userAgent =
+      typeof navigator === 'undefined' ? '' : navigator.userAgent;
+    const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    setIsMobile(isMobileDevice);
+  }, []);
+
   return (
     <div id="hero" className="px-4 sm:px-8 lg:px-10">
       <img
@@ -23,7 +35,15 @@ export const Banner = () => {
 
         <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
           <Button size={'lg'} asChild>
-            <a href="/contato">Fale com um consultor</a>
+            <a
+              href={`https://${
+                isMobile ? 'api' : 'web'
+              }.whatsapp.com/send?phone=${phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fale com um consultor
+            </a>
           </Button>
         </div>
 

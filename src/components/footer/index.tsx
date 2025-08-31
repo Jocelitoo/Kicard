@@ -2,18 +2,29 @@ import logo from '../../assets/images/logo.png';
 import wpp from '@/assets/svgs/wppWhite.svg';
 import { Instagram, Mail } from 'lucide-react';
 import { links } from '../header';
-import { motion } from "motion/react";
-
+import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { phone } from '@/utils/phone';
 
 export const Footer = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verificar se o usuário está acessando no desktop ou celular
+  useEffect(() => {
+    const userAgent =
+      typeof navigator === 'undefined' ? '' : navigator.userAgent;
+    const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    setIsMobile(isMobileDevice);
+  }, []);
+
   // Animação de scroll
   const handleScroll = (id: string) => {
     const element = document.querySelector(id);
 
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth", // suaviza o scroll
-        block: "start",
+        behavior: 'smooth', // suaviza o scroll
+        block: 'start',
       });
     }
   };
@@ -47,35 +58,51 @@ export const Footer = () => {
           <div className="space-y-2">
             <h3 className="text-2xl mb-2 font-bold">Contato</h3>
 
-            <div className="flex gap-2">
+            <a href="mailto:teste@outlook.com" className="flex gap-2 group">
               <Mail />
-              <p className="text-gray-200">kicard@outlook.com</p>
-            </div>
+              <span className="duration-300 group-hover:text-projectBlue">
+                kicard@outlook.com
+              </span>
+            </a>
 
-            <div className="flex gap-2">
+            <a
+              href={`https://${
+                isMobile ? 'api' : 'web'
+              }.whatsapp.com/send?phone=${phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 group"
+            >
               <img src={wpp} alt="" />
-              <p className="text-gray-200">(xx) 9xxxx-xxxx</p>
-            </div>
 
-            <div className="flex gap-2">
+              <span className="duration-300 group-hover:text-projectBlue">
+                {phone}
+              </span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/kicard_?igsh=MTdjYmpvM3dlODJ0cw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 group"
+            >
               <Instagram />
-              <p className="text-gray-200">Kicard</p>
-            </div>
+              <span className="duration-300 group-hover:text-projectBlue">
+                Kicard
+              </span>
+            </a>
           </div>
         </div>
 
         <nav className="text-white">
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:justify-between gap-4 text-center">
             {links.map((link, index) => {
               return (
                 <li key={index}>
-                  {/* <a
-                    href={link.url}
-                    className=" hover:bg-projectBlue hover:text-black duration-300 px-4 py-2 rounded-lg text-gray-200"
+                  <motion.button
+                    onClick={() => handleScroll(link.url)}
+                    className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg"
                   >
-                    {link.text}
-                  </a> */}
-                  <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
                     {link.text}
                   </motion.button>
                 </li>

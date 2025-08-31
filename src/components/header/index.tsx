@@ -11,8 +11,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
-import { motion } from "motion/react";
-
+import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { phone } from '@/utils/phone';
 
 export const links = [
   { text: 'Home', url: '#hero' },
@@ -24,15 +25,27 @@ export const links = [
 ];
 
 export const Header = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Verificar se o usuário está acessando no desktop ou celular
+  useEffect(() => {
+    const userAgent =
+      typeof navigator === 'undefined' ? '' : navigator.userAgent;
+    const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+    setIsMobile(isMobileDevice);
+  }, []);
+
   // Animação de scroll
   const handleScroll = (id: string) => {
     const element = document.querySelector(id);
 
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth", // suaviza o scroll
-        block: "start",
+        behavior: 'smooth', // suaviza o scroll
+        block: 'start',
       });
+    } else {
+      window.location.href = '/'; // Redirecionar para a home em caso de estar em outra página
     }
   };
 
@@ -49,14 +62,10 @@ export const Header = () => {
             {links.map((link, index) => {
               return (
                 <li key={index}>
-                  {/* <a
-                    href={link.url}
-                    className=" hover:bg-projectBlue hover:text-black duration-300 px-4 py-2 rounded-lg"
+                  <motion.button
+                    onClick={() => handleScroll(link.url)}
+                    className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg"
                   >
-                    {link.text}
-                  </a> */}
-
-                  <motion.button onClick={() => handleScroll(link.url)} className=" hover:bg-projectBlue hover:text-black duration-300 cursor-pointer px-4 py-2 rounded-lg">
                     {link.text}
                   </motion.button>
                 </li>
@@ -65,8 +74,20 @@ export const Header = () => {
           </ul>
         </nav>
 
-        <Button size={'lg'} asChild className='hidden lg:flex bg-projectBlue text-black duration-300  hover:bg-projectBlueHover'>
-          <a href="#">Fale conosco</a>
+        <Button
+          size={'lg'}
+          asChild
+          className="hidden lg:flex bg-projectBlue text-black duration-300  hover:bg-projectBlueHover"
+        >
+          <a
+            href={`https://${
+              isMobile ? 'api' : 'web'
+            }.whatsapp.com/send?phone=${phone}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Fale conosco
+          </a>
         </Button>
 
         {/* Nav mobile */}
@@ -108,7 +129,15 @@ export const Header = () => {
                   asChild
                   className="bg-projectBlue text-black w-full duration-300 hover:bg-projectBlueHover"
                 >
-                  <a href="#">Fale conosco</a>
+                  <a
+                    href={`https://${
+                      isMobile ? 'api' : 'web'
+                    }.whatsapp.com/send?phone=${phone}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Fale conosco
+                  </a>
                 </Button>
               </SheetClose>
             </SheetFooter>

@@ -3,7 +3,7 @@ import { Handshake, Headset, ShieldCheck, TrendingDown } from 'lucide-react';
 
 export const Advantages = () => {
   return (
-    <section id='vantagens' className='scroll-mt-24'>
+    <section id="vantagens" className="scroll-mt-24">
       <div className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto flex flex-col items-center gap-8">
         <h2 className="bg-cardBlue rounded-lg px-4 py-2">Vantagens</h2>
 
