@@ -8,19 +8,19 @@ const iconCss = 'rounded-full p-2 bg-projectGreen';
 const elements = [
   {
     icon: <Map size={60} className={iconCss} />,
-    text: '+ x Convênios no Brasil',
+    text: 'Diversos convênios no Brasil',
   },
   {
     icon: <Banknote size={60} className={iconCss} />,
-    text: '+ x Milhões de crédito',
+    text: 'Milhões de crédito gerado',
   },
   {
     icon: <Users2 size={60} className={iconCss} />,
-    text: '+ x Mil clientes',
+    text: 'Inúmeros clientes atendidos',
   },
   {
     icon: <Clock size={60} className={iconCss} />,
-    text: '+ x Anos no mercado',
+    text: 'Experiência no mercado',
   },
 ];
 

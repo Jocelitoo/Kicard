@@ -1,4 +1,4 @@
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.webp';
 import wpp from '@/assets/svgs/wppWhite.svg';
 import { Instagram, Mail } from 'lucide-react';
 import { links } from '../header';

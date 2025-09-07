@@ -1,4 +1,4 @@
-import map from '@/assets/images/map2.webp';
+import map from '@/assets/images/map.webp';
 import { Button } from '@/components/ui/button';
 import { Dot, PlusCircle } from 'lucide-react';
 import { useState } from 'react';
@@ -70,6 +70,7 @@ export const Map = () => {
         <img
           src={map}
           alt="Mapa do Brasil"
+          loading="lazy"
           className="w-full max-w-md mx-auto"
         />
       </div>

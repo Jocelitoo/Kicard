@@ -5,7 +5,8 @@
 
 @font-face {
   font-family: 'VarelaRound';
-  src: url('../fonts/VarelaRound-Regular.ttf') format('truetype');
+  src: url('../fonts/VarelaRound-Regular.woff2') format('woff2');
+  font-display: swap;
 }
 
 body {
@@ -166,4 +167,3 @@ body {
     rgba(0, 0, 0, 1) 100%
   );
 }
-

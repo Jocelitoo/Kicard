@@ -1,5 +1,5 @@
-import logo from '../../assets/images/logo.png';
-import logo2 from '@/assets/images/logo2White.png';
+import logo from '../../assets/images/logo.webp';
+import logo2 from '@/assets/images/logo2White.webp';
 import { Button } from '../ui/button';
 import { Menu } from 'lucide-react';
 import {
@@ -92,7 +92,10 @@ export const Header = () => {
 
         {/* Nav mobile */}
         <Sheet>
-          <SheetTrigger className="bg-projectGreen p-1 rounded-md  lg:hidden">
+          <SheetTrigger
+            aria-label="Abrir menu"
+            className="bg-projectGreen p-1 rounded-md lg:hidden"
+          >
             <Menu />
           </SheetTrigger>
 

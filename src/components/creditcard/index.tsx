@@ -1,5 +1,5 @@
-import logo from '@/assets/images/logo.png';
-import chip from '@/assets/images/chip.png';
+import logo from '@/assets/images/logo.webp';
+import chip from '@/assets/images/chip.webp';
 
 type Props = {
   name?: string;
