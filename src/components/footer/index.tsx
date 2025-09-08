@@ -58,17 +58,9 @@ export const Footer = () => {
           <div className="space-y-2">
             <h3 className="text-2xl mb-2 font-bold">Contato</h3>
 
-            <a href="mailto:teste@outlook.com" className="flex gap-2 group">
-              <Mail />
-              <span className="duration-300 group-hover:text-projectBlue">
-                kicard@outlook.com
-              </span>
-            </a>
-
             <a
-              href={`https://${
-                isMobile ? 'api' : 'web'
-              }.whatsapp.com/send?phone=${phone}`}
+              href={`https://${isMobile ? 'api' : 'web'
+                }.whatsapp.com/send?phone=${phone}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex gap-2 group"
@@ -77,6 +69,13 @@ export const Footer = () => {
 
               <span className="duration-300 group-hover:text-projectBlue">
                 {phone}
+              </span>
+            </a>
+
+            <a href="mailto:sac@kicard.com.br" className="flex gap-2 group">
+              <Mail />
+              <span className="duration-300 group-hover:text-projectBlue">
+                sac@kicard.com.br
               </span>
             </a>
 
@@ -112,7 +111,7 @@ export const Footer = () => {
         </nav>
 
         <div>
-          <p className="text-gray-200">Kicard | CNPJ xx.xxx.xxx/xxxx-xx</p>
+          <p className="text-gray-200">Kicard | CNPJ 51.429.903/0001-23</p>
         </div>
       </div>
     </footer>
