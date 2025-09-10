@@ -7,7 +7,7 @@ const products = [
     text: 'Modalidade voltada para aposentados, pensionistas e servidores públicos. Ele oferece taxas de juros mais baixas, desconto automático na folha de pagamento e diversas vantagens exclusivas, tornando-se uma opção acessível e prática para quem busca crédito.',
     benefits: [
       'Taxas de Juros Menores',
-      'Desconto Automático',
+      'Praticidade, desconto em folha',
       'Facilidade de Aprovação',
       'Seguro de vida',
       'Cartão internacional',
