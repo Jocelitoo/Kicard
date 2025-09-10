@@ -12,7 +12,7 @@ const elements = [
   },
   {
     icon: <Banknote size={60} className={iconCss} />,
-    text: 'Milhões de crédito gerado',
+    text: 'Milhões de crédito gerados',
   },
   {
     icon: <Users2 size={60} className={iconCss} />,

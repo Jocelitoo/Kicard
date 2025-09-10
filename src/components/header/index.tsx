@@ -80,9 +80,8 @@ export const Header = () => {
           className="hidden lg:flex bg-projectBlue text-black duration-300  hover:bg-projectBlueHover"
         >
           <a
-            href={`https://${
-              isMobile ? 'api' : 'web'
-            }.whatsapp.com/send?phone=${phone}`}
+            href={`https://${isMobile ? 'api' : 'web'
+              }.whatsapp.com/send?phone=${phone}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -133,9 +132,8 @@ export const Header = () => {
                   className="bg-projectBlue text-black w-full duration-300 hover:bg-projectBlueHover"
                 >
                   <a
-                    href={`https://${
-                      isMobile ? 'api' : 'web'
-                    }.whatsapp.com/send?phone=${phone}`}
+                    href={`https://${isMobile ? 'api' : 'web'
+                      }.whatsapp.com/send?phone=${phone}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
