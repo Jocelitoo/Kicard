@@ -1,1 +1,1 @@
-export const phone = '55 (85) 98983-6423';
+export const phone = '55 800 202 0105';
