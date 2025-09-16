@@ -80,7 +80,7 @@ export const Footer = () => {
             </a>
 
             <a
-              href="https://www.instagram.com/kicard_?igsh=MTdjYmpvM3dlODJ0cw=="
+              href="https://www.instagram.com/kicardbr?igsh=MTdjYmpvM3dlODJ0cw=="
               target="_blank"
               rel="noopener noreferrer"
               className="flex gap-2 group"
