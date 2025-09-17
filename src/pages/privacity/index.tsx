@@ -1,22 +1,8 @@
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
-import { phone } from "@/utils/phone"
-import { Instagram, Mail } from "lucide-react"
-import wpp from '@/assets/svgs/wppWhite.svg';
-import { useEffect, useState } from "react";
 
 
 export const Privacity = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    // Verificar se o usuário está acessando no desktop ou celular
-    useEffect(() => {
-        const userAgent =
-            typeof navigator === 'undefined' ? '' : navigator.userAgent;
-        const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
-        setIsMobile(isMobileDevice);
-    }, []);
-
     return (
         <>
             <Header />
