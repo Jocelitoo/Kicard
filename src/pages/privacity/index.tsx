@@ -1,7 +1,22 @@
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { phone } from "@/utils/phone"
+import { Instagram, Mail } from "lucide-react"
+import wpp from '@/assets/svgs/wppWhite.svg';
+import { useEffect, useState } from "react";
+
 
 export const Privacity = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Verificar se o usuário está acessando no desktop ou celular
+    useEffect(() => {
+        const userAgent =
+            typeof navigator === 'undefined' ? '' : navigator.userAgent;
+        const isMobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent);
+        setIsMobile(isMobileDevice);
+    }, []);
+
     return (
         <>
             <Header />
@@ -58,7 +73,7 @@ export const Privacity = () => {
                 <div className="space-y-4 max-w-148">
                     <h2 className="font-bold text-xl lg:text-4xl border-x-4 border-projectBlue">8. Contato</h2>
 
-                    <p className="lg:text-xl lg:text-justify">Se você tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos suas informações, entre em contato conosco:</p>
+                    <p className="lg:text-xl lg:text-justify">Se você tiver dúvidas sobre esta Política de Privacidade ou sobre como tratamos suas informações, entre em contato conosco.</p>
                 </div>
 
             </main>

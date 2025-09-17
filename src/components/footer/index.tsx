@@ -65,7 +65,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="flex gap-2 group"
             >
-              <img src={wpp} alt="" />
+              <img src={wpp} alt="Icone do Whatsapp" />
 
               <span className="duration-300 group-hover:text-projectBlue">
                 {phone}
