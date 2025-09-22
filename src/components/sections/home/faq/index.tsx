@@ -97,7 +97,7 @@ export const FAQ = () => {
         >
           {categories.map((option, index) => {
             return (
-              <div key={index} className="bg-white">
+              <div key={index}>
                 <RadioGroupItem
                   value={option.id}
                   id={option.id}
@@ -106,7 +106,7 @@ export const FAQ = () => {
 
                 <Label
                   htmlFor={option.id}
-                  className=" w-full flex flex-col gap-4 border rounded-lg p-4 shadow-sm cursor-pointer duration-300 hover:bg-projectBlue peer-data-[state=checked]:bg-projectBlue"
+                  className="w-full flex flex-col gap-4 border rounded-lg p-4 shadow-sm cursor-pointer duration-300 bg-white hover:bg-projectBlue peer-data-[state=checked]:bg-projectBlue"
                 >
                   {option.icon}
 

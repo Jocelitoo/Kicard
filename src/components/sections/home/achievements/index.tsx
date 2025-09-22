@@ -36,22 +36,6 @@ export const Achievements = () => {
   }, []);
 
   return (
-    // <section className="flex justify-between max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto">
-    //   {elements.map((element, index) => {
-    //     return (
-    //       <div
-    //         key={index}
-    //         className="flex flex-col items-center gap-4 p-4 rounded-lg bg-cardBlue shadow-lg "
-    //       >
-    //         <div className="border p-1 rounded-full bg-white">
-    //           {element.icon}
-    //         </div>
-    //         <p className="uppercase">{element.text}</p>
-    //       </div>
-    //     );
-    //   })}
-    // </section>
-
     <section
       id="sobre"
       className="max-w-7xl px-4 sm:px-8 lg:px-10 mx-auto grid lg:grid-cols-2 gap-8 scroll-mt-30"
@@ -64,15 +48,6 @@ export const Achievements = () => {
         <h2 className="font-semibold text-3xl text-gray-900">
           Confiança e inovação para o seu futuro
         </h2>
-
-        {/* <p className="text-gray-800">
-          Na Kicard entregamos crédito consignado com foco em acessibilidade,
-          segurança e inovação. Trabalhamos para que nossos processos sejam
-          simples, rápidos e claros — sem letras miúdas. Nossa prioridade é a
-          confiança do cliente: atendimento humano, tecnologia confiável e total
-          transparência nas condições. Estamos sempre prontos para ajudar você a
-          encontrar a solução financeira ideal.
-        </p> */}
 
         <p className="text-gray-800">
           A Kicard nasceu da vontade de tornar o crédito consignado mais simples
