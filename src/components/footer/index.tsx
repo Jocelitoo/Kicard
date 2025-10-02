@@ -1,6 +1,6 @@
 import logo from '../../assets/images/logo.webp';
 import wpp from '@/assets/svgs/wppWhite.svg';
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 import { links } from '../header';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
@@ -71,6 +71,13 @@ export const Footer = () => {
                 {phone}
               </span>
             </a>
+
+            <p className="flex gap-2 group">
+              <Phone />
+              <span className="duration-300 group-hover:text-projectBlue">
+                08008780126
+              </span>
+            </p>
 
             <a href="mailto:sac@kicard.com.br" className="flex gap-2 group">
               <Mail />
